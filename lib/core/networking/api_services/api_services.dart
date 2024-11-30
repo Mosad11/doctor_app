@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:doctor_app/core/networking/api_constants/api_constants.dart';
 import 'package:doctor_app/features/screens/login/data/model/login_request_body_model.dart';
 import 'package:doctor_app/features/screens/login/data/model/login_response_model.dart';
+import 'package:doctor_app/features/screens/register/data/model/register_reponse_model.dart';
+import 'package:doctor_app/features/screens/register/data/model/register_request_body_model.dart';
 import 'package:retrofit/retrofit.dart';
 part 'api_services.g.dart';
 
@@ -13,4 +15,7 @@ abstract class ApiServices {
   Future<LoginResponse> login(
     @Body() LoginRequestBodyModel loginRequestBodyModel,
   );
+  @POST(ApiConstants.registerUrl)
+  Future<RegisterReponseModel> register(
+      @Body() RegisterRequestBodyModel registerRequestBodyModel);
 }
